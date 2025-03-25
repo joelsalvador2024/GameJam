@@ -33,7 +33,8 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (collision.tag == "Player" && !canDamageEnemy)
         {
-            collision.GetComponent<Life>().life--;
+            collision.GetComponent<Life>().life -= 1;
+            Debug.Log("AAAAAA");
             Destroy(gameObject);
         }
         if (collision.tag == "Enemy" && canDamageEnemy)
