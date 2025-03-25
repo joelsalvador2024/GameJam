@@ -23,6 +23,14 @@ public class Life : MonoBehaviour
 
     void Death()
     {
-        Destroy(gameObject);
+        if (this.gameObject.tag == "Player")
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

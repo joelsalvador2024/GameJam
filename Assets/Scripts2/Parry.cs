@@ -34,13 +34,14 @@ public class Parry : MonoBehaviour
                 timer = 0f;
             }
         }
-
-
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("KYS");
-        collision.GetComponent<BulletBehaviour>().direction = (collision.GetComponent<BulletBehaviour>().parentEnemy.transform.position - collision.gameObject.transform.position).normalized;
-        collision.GetComponent<BulletBehaviour>().canDamageEnemy = true;
+        if (collision.tag == "Bullet")
+        {
+            collision.GetComponent<BulletBehaviour>().direction = (collision.GetComponent<BulletBehaviour>().parentEnemy.transform.position - collision.gameObject.transform.position).normalized;
+            collision.GetComponent<BulletBehaviour>().canDamageEnemy = true;
+        }
+
     }
 }
