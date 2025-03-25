@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool isGrounded;
     public float speed;
     private float move;
     public float jump;
@@ -20,9 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+            isGrounded = false;
         }
     }
 }
