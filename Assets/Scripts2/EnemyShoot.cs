@@ -17,7 +17,7 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         counter += Time.deltaTime;
-        if (counter >= 2)
+        if (counter >= 1)
         {
             Shoot();
             counter = 0;

@@ -20,7 +20,7 @@ public class Parry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("x"))
         {
             parryBox.enabled = true;
         }
