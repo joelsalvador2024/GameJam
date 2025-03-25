@@ -9,6 +9,7 @@ public class BulletBehaviour : MonoBehaviour
     public GameObject parentEnemy;
     public float speed;
     public Vector3 direction;
+    public bool canDamageEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,24 @@ public class BulletBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position += direction * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && !canDamageEnemy)
+        {
+            collision.GetComponent<Life>().life--;
+            Destroy(gameObject);
+        }
+        if (collision.tag == "Enemy" && canDamageEnemy)
+        {
+            collision.GetComponent<Life>().life--;
+            Destroy(gameObject);
+        }
+        if (collision.tag == "Suelo")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 79255790}
   - component: {fileID: 79255789}
   - component: {fileID: 79255788}
+  - component: {fileID: 79255793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -297,6 +298,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79255793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79255787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e45c3c9d1c7f54895571ae221084c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 3
 --- !u!1 &395165438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7123662696703019807, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
@@ -315,6 +329,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9049946600121532009, guid: 3a48086093f04b946962ad2f4dcce7b7, type: 3}
+--- !u!114 &395165440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395165438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e45c3c9d1c7f54895571ae221084c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
 --- !u!1 &633111529
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7123662696703019807, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8471958744781761200, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
       propertyPath: speed
       value: 4
@@ -635,4 +666,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7123662696703019807, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 395165439}
+    - targetCorrespondingSourceObject: {fileID: 7123662696703019807, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 395165440}
   m_SourcePrefab: {fileID: 100100000, guid: 04406de2cc4302e4fb783e45439ff71d, type: 3}
