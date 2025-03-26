@@ -7,6 +7,14 @@ public class EnemyShoot : MonoBehaviour
 
     public GameObject bullet;
     float counter;
+
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +37,6 @@ public class EnemyShoot : MonoBehaviour
     {
         GameObject IBullet = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
         IBullet.GetComponent<BulletBehaviour>().parentEnemy = this.gameObject;
+        soundManager.SeleccionAudio(1, 0.5f);
     }
 }

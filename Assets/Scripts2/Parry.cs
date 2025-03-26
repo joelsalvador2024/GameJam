@@ -10,7 +10,14 @@ public class Parry : MonoBehaviour
 
     [SerializeField]
     private float parryActiveTime;
-    
+
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +30,7 @@ public class Parry : MonoBehaviour
         if (Input.GetKeyDown("x"))
         {
             parryBox.enabled = true;
+            soundManager.SeleccionAudio(0, 0.5f);
         }
         
         if (parryBox.enabled)
