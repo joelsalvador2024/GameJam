@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool isGrounded;
     public float speed;
+    public float jumps = 2;
     private float move;
     public float jump;
     private Animator playerAnimator;
@@ -43,6 +44,15 @@ public class PlayerMovement : MonoBehaviour
             sprite.flipX = false;
         }
 
+        if (jumps == 2)
+        {
+            isGrounded = true;
+        }
+        if (jumps < 2)
+        {
+            isGrounded = false;
+        }
+
         if (Input.GetKeyDown("x"))
         {
             playerAnimator.Play("Parry", 0 , 0.25f);
@@ -56,9 +66,10 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("IsJumping", false);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && jumps > 0)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+            jumps--;
         }
     }
 }

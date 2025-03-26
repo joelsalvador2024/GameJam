@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-
+    private Animator enemyAnimator;
     public GameObject bullet;
     float counter;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +27,7 @@ public class EnemyShoot : MonoBehaviour
 
     void Shoot()
     {
+        enemyAnimator.Play("EnemyAttack", 0, 0.25f);
         GameObject IBullet = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
         IBullet.GetComponent<BulletBehaviour>().parentEnemy = this.gameObject;
     }

@@ -19,13 +19,13 @@ public class Grounded : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Suelo")
+        if (collision.tag == "Suelo" || collision.tag == "Enemy")
         {
-            player.GetComponent<PlayerMovement>().isGrounded = true;
+            player.GetComponent<PlayerMovement>().jumps = 2;
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        player.GetComponent<PlayerMovement>().isGrounded = false;
+        if (collision.tag == "Bullet")
+        {
+            player.GetComponent<PlayerMovement>().isGrounded = player.GetComponent<PlayerMovement>().isGrounded;
+        }
     }
 }

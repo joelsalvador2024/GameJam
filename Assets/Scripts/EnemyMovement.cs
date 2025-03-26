@@ -6,9 +6,11 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform target;
     public float speed;
+    private Animator enemyAnimator;
 
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -17,6 +19,15 @@ public class EnemyMovement : MonoBehaviour
         if(target != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+
+        if (target.position != transform.position)
+        {
+            enemyAnimator.SetBool("IsRunning", true);
+        }
+        if (target.position == transform.position)
+        {
+            enemyAnimator.SetBool("IsRunning", false);
         }
 
     }
