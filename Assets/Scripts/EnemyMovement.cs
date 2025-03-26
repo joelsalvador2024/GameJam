@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     public float speed;
+    private Animator enemyAnimator;
 
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Update()
+    private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if(target != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+
+        if (target.position != transform.position)
+        {
+            enemyAnimator.SetBool("IsRunning", true);
+        }
+        if (target.position == transform.position)
+        {
+            enemyAnimator.SetBool("IsRunning", false);
+        }
+
     }
 }
