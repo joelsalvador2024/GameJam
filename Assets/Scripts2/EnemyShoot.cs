@@ -6,7 +6,7 @@ public class EnemyShoot : MonoBehaviour
 {
     private Animator enemyAnimator;
     public GameObject bullet;
-    float counter;
+    public float counter;
 
     private SoundManager soundManager;
 
@@ -28,13 +28,13 @@ public class EnemyShoot : MonoBehaviour
         if (counter >= 1)
         {
             Shoot();
-            counter = 0;
         }
 
     }
 
     void Shoot()
     {
+        counter = 0;
         enemyAnimator.Play("EnemyAttack", 0, 0.25f);
         GameObject IBullet = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
         IBullet.GetComponent<BulletBehaviour>().parentEnemy = this.gameObject;
